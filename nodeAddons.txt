@@ -1,0 +1,42 @@
+function add(a,b ,c){
+console.log("from add:"+(a+b));    
+c();}
+
+var a = 10;
+var b = 12;
+var result = add(a,b);
+
+console.log("result: "+(a+b));
+
+(function(){console.log("abby is good")})()
+
+add(2,3, () => console.log("Done"))
+
+var createHelloWorld = function(){
+    return () => console.log("Hello World")
+}
+
+// var createCounter = function(n) {
+    
+//     return function counter(){
+//         return n++;
+//     }
+// };
+
+// const counter = createCounter(10)
+// counter() 
+// counter() 
+// counter() 
+
+// check nodejs version documentationfor more fs and os functions
+var fs = require('fs');
+var os = require('os');
+
+var user = os.userInfo();
+console.log('user1: ' + user.username);
+
+fs.appendFile('greeting.txt', 'hello  '+ user.username +'!',() => console.log('file is created'));
+
+// to check what all functions can be performed
+// console.log(fs);
+// console.log(os);

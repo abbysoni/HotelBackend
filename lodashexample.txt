@@ -1,0 +1,13 @@
+var _=require('lodash');
+
+var data  = ["satna", "person", 12, 15, 12 ,"person", "Person","name"];
+
+var result = _.uniq(data);
+it will return the unique values onlyfor data
+
+console.log(result);
+
+console.log(_.isString("arjun"));
+it will return true in this case
+
+check and learn other functions from lodash library.

@@ -1,0 +1,25 @@
+ 
+//Notes.js code is here
+console.log ("Notes is loaded successfully");
+
+var age = 10;
+
+var sum = function(a,b){
+    return a+b;
+}
+
+module.exports = {
+    age,
+    sum
+}
+
+
+// to use this paste this code in server.js
+// const notes = require('./notes.js')
+
+// console.log("server file is available")
+//  var age= notes.age;
+//  console.log(age);
+
+//  var results = notes.sum(age,3)
+//  console.log(results);
