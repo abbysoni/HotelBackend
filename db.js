@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
 //Define the MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/hotels';
+// const mongoURL = 'mongodb://localhost:27017/hotels';
+// To connect to mongo atlas free cloud database server
+const mongoURL = "mongodb+srv://AbbyD1:AbbyD1@clustera.hmsexhd.mongodb.net/?retryWrites=true&w=majority&appName=ClusterA";
 
 //Setup mongoDB connection
 mongoose.connect(mongoURL,{
-//    useNewUrlParser: true,
-//     useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
 
 //Get the default connection
