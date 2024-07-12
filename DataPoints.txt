@@ -1,0 +1,10 @@
+9-7-2024
+
+DotEnv module = in node js is used to manage configuration variables and senesitive information in your applications. Its not pushed to github or bitbucket.
+
+Its usefule for keeping sensitive data like API keys, database connection strings and other envt -specific configurations separate from your code
+
+npm install DotEnv
+
+require(.detenv).config()
+

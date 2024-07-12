@@ -21,8 +21,11 @@ const personSchema= new mongoose.Schema({
                 return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v);
             },
             message: props => `${props.value} is not a valid email!`
-        }
-    }
+        } 
+    },
+
+    username:String,
+    password:String
 
 });
 

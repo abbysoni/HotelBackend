@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Menu = require('../models/Menu');
 
-router.post('/', async(req,res)=>{
+router.post('/menu', async(req,res)=>{
     try{
       const data = req.body;
       console.log("Received data", data);

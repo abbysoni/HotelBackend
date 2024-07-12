@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Person = require('../models/People')
 
-router.post('/person', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const data = req.body
       console.log("Received data", data);
@@ -19,7 +19,7 @@ router.post('/person', async (req, res) => {
     }
 });
   
-router.get('/person',async(req,res)=>{
+router.get('/',async(req,res)=>{
     try{
       const data = await Person.find();
       res.status(200).json(data)
@@ -28,7 +28,7 @@ router.get('/person',async(req,res)=>{
 }});
 
   
-router.get('/person/:workType',async(req,res)=>{
+router.get('/:workType',async(req,res)=>{
     try{
       const workType= req.params.workType; //extract workType from url
       if(workType=='chef'|| workType=='waiter'||workType=='manager')
@@ -47,7 +47,7 @@ router.get('/person/:workType',async(req,res)=>{
 })
 
 // Update operation via parameter ID
-router.put('/person/:id',async(req,res)=>{
+router.put('/:id',async(req,res)=>{
 try {
     const personId = req.params.id;
     const updatedPersonData = req.body;
@@ -72,7 +72,7 @@ try {
 
 
 // Delete by id
-router.delete('/person/:id',async(req,res)=>{
+router.delete('/:id',async(req,res)=>{
     try {
         const personId = req.params.id;
     
