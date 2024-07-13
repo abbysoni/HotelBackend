@@ -12,7 +12,9 @@ passport.use(new LocalStrategy(
           return done(null, false, { message: 'Incorrect username.' });
         }
   
-        const isPasswordMatch = user.password === Password ?true : false;
+        // const isPasswordMatch = user.password === Password ?true : false;
+        const isPasswordMatch = await user.comparePassword(Password);
+
         if (!isPasswordMatch) {
           return done(null, false, { message: 'Incorrect password.' });
         }else{

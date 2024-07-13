@@ -31,25 +31,6 @@ const localAuth = passport.authenticate('local',{session:false});
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // add logrequest to entry route as variable if app.use(logRequest) is not there already
 app.get('/', (req, res) => {
   res.send('Welcome to our hotel')
@@ -57,7 +38,9 @@ app.get('/', (req, res) => {
 
 
 const personRoutes= require('./routes/personRoutes')
-app.use('/person',localAuth, personRoutes)
+// app.use('/person',localAuth, personRoutes) to check username and password before entering
+app.use('/person', personRoutes)
+
 
 const menuRoutes = require('./routes/menuRoutes')
 // removed menu from end points on menuroutes hence this will not work
