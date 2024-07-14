@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const findOrCreate = require('mongoose-findorcreate');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 // Define the user schema object
