@@ -1,10 +1,16 @@
 const express = require('express')
+const passport = require('passport')
 const app = express()
 require('dotenv').config()
 const port = process.env.PORT|| 3000
 const db = require('./db')
-const passport= require('./auth')
+//for local strategy
+require('./config/auth')
+//for google login strategy
 
+// const localAuthRoutes = require('./routes/localAuth');
+const googleAuthRoutes = require('./routes/googleAuth');
+// const profileRoutes = require('./routes/profile');
 
 
 // Middleware configuration
@@ -27,7 +33,9 @@ app.use(bodyParser.json())
 
 // need to intialize before using it
 app.use(passport.initialize())
-const localAuth = passport.authenticate('local',{session:false});
+app.use(googleAuthRoutes)
+// const localAuth = passport.authenticate('local',{session:false});
+// const gAuth = passport.authenticate('google',{scope:['https://www.googleapis.com/auth/plus.login']})
 
 
 
@@ -46,6 +54,9 @@ const menuRoutes = require('./routes/menuRoutes')
 // removed menu from end points on menuroutes hence this will not work
 // app.use('/',menuRoutes)
 app.use('/',menuRoutes);
+
+// const gAuthRoutes = require('./routes/gAuthRoutes')
+// app.use('/',gAuth, gAuthRoutes);
 
 
 

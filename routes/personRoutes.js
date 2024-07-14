@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {jwtAuthMiddleware, generateToken} = require('../jwt')
+const {jwtAuthMiddleware, generateToken} = require('../config/jwt')
 
 const Person = require('../models/People')
 
@@ -30,23 +30,7 @@ router.get('/',jwtAuthMiddleware, async(req,res)=>{
 }});
 
   
-router.get('/:workType',async(req,res)=>{
-    try{
-      const workType= req.params.workType; //extract workType from url
-      if(workType=='chef'|| workType=='waiter'||workType=='manager')
-        {
-          const response = await Person.find({ work: workType});
-          console.log("Response Fetched");
-          res.status(200).json(response);
-        }else{
-          res.status(404).json({error: "invalid work Type"});
-        }
-      }catch(err){
-        console.error("Error finding person with worktype", error);
-        res.status(500).json({ error: "Internal Server Error" });
-      }
-    
-})
+
 
 // Update operation via parameter ID
 router.put('/:id',async(req,res)=>{
@@ -139,6 +123,8 @@ router.post('/login', async(req, res) => {
       username: user.username
     }
 
+    console.log("Payload for token :", payload);
+
     const token= generateToken(payload);
 
     //pass the token
@@ -171,5 +157,26 @@ try {
     res.status(500).json({ error: "Internal Server Error"});
 }
 });
+
+
+//this should be written at last or it will conflict with /profile or other such routes and error will appear
+// "error": "invalid work Type"
+router.get('/:workType',async(req,res)=>{
+  try{
+    const workType= req.params.workType; //extract workType from url
+    if(workType=='chef'|| workType=='waiter'||workType=='manager')
+      {
+        const response = await Person.find({ work: workType});
+        console.log("Response Fetched");
+        res.status(200).json(response);
+      }else{
+        res.status(404).json({error: "invalid work Type"});
+      }
+    }catch(err){
+      console.error("Error finding person with worktype", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  
+})
 
 module.exports = router;
