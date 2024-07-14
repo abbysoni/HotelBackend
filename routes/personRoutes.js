@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {jwtAuthMiddleware, generateToken} = require('../config/jwt')
 
-const Person = require('../models/People')
+// const Person = require('../Notes/People')
+const Person = require('../models/User')
 
 // router.post('/', async (req, res) => {
 //     try {
