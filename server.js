@@ -1,15 +1,15 @@
 const express = require('express')
 const passport = require('passport')
 const app = express()
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config();
 const port = process.env.PORT|| 3000
 const db = require('./db')
 //for local strategy
 require('./config/auth')
 //for google login strategy
 
-// console.log('Client ID:', process.env.GOOGLE_CLIENT_ID);
-// console.log('Client Secret:', process.env.GOOGLE_CLIENT_SECRET);
+console.log('Client ID:', process.env.GOOGLE_CLIENT_ID);
+console.log('Client Secret:', process.env.GOOGLE_CLIENT_SECRET);
 
 // const localAuthRoutes = require('./routes/localAuth');
 const googleAuthRoutes = require('./routes/googleAuth');
