@@ -22,7 +22,7 @@ const Person = require('../models/User')
 //     }
 // });
   
-router.get('/',jwtAuthMiddleware, async(req,res)=>{
+router.get('/', async(req,res)=>{
     try{
       const data = await Person.find();
       res.status(200).json(data)
