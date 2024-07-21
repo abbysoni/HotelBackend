@@ -51,7 +51,8 @@ app.get('/', (req, res) => {
 
 const personRoutes= require('./routes/personRoutes')
 // app.use('/person',localAuth, personRoutes) to check username and password before entering
-app.use('/person',googleAuthRoutes, personRoutes)
+// app.use('/person',googleAuthRoutes, personRoutes)
+app.use('/person', personRoutes)
 
 
 const menuRoutes = require('./routes/menuRoutes')
