@@ -33,25 +33,25 @@ passport.use(new LocalStrategy(
     }
   ));
 
- passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
-  }, async (token, tokenSecret, profile, done) => {
-    try {
-      console.log("Google profile: ", profile);
-      const email = profile.emails ? profile.emails[0].value : undefined;
-      const displayName = profile.displayName || '';
-      // const user = await Person.findOrCreate({ googleId: profile.id }, {
-        const result = await User.findOrCreate({ googleId: profile.id }, {
-          displayName: displayName,
-          email: email
-        });
-        const user = result.doc;
-        return done(null, user);
-    } catch (err) {
-      done(err,null);
-    }
-  }));
+//  passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     callbackURL: "/auth/google/callback"
+//   }, async (token, tokenSecret, profile, done) => {
+//     try {
+//       console.log("Google profile: ", profile);
+//       const email = profile.emails ? profile.emails[0].value : undefined;
+//       const displayName = profile.displayName || '';
+//       // const user = await Person.findOrCreate({ googleId: profile.id }, {
+//         const result = await User.findOrCreate({ googleId: profile.id }, {
+//           displayName: displayName,
+//           email: email
+//         });
+//         const user = result.doc;
+//         return done(null, user);
+//     } catch (err) {
+//       done(err,null);
+//     }
+//   }));
 
   module.exports= passport

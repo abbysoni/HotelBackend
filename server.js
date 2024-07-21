@@ -12,7 +12,7 @@ require('./config/auth')
 // console.log('Client Secret:', process.env.GOOGLE_CLIENT_SECRET);
 
 const localAuthRoutes = require('./Auth/localAuth');
-const googleAuthRoutes = require('./Auth/googleAuth');
+// const googleAuthRoutes = require('./Auth/googleAuth');
 // const profileRoutes = require('./routes/profile');
 
 
@@ -36,7 +36,7 @@ app.use(bodyParser.json())
 
 // need to intialize before using it
 app.use(passport.initialize())
-app.use(googleAuthRoutes)
+// app.use(googleAuthRoutes)
 app.use(localAuthRoutes)
 // const localAuth = passport.authenticate('local',{session:false});
 // const gAuth = passport.authenticate('google',{scope:['https://www.googleapis.com/auth/plus.login']})
