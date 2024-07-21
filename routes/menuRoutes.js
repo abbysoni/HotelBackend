@@ -19,7 +19,7 @@ router.post('/menu', async(req,res)=>{
     }
 });
   
-router.get('/',async(req,res)=>{
+router.get('/menu',async(req,res)=>{
     try{
       const data = await Menu.find();
       res.status(200).json(data)

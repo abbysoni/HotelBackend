@@ -5,13 +5,13 @@ require('dotenv').config({ path: '.env.local' });
 const port = process.env.PORT|| 3000
 const db = require('./db')
 //for local strategy
-require('./config/auth')
+// require('./config/auth')
 //for google login strategy
 
 // console.log('Client ID:', process.env.GOOGLE_CLIENT_ID);
 // console.log('Client Secret:', process.env.GOOGLE_CLIENT_SECRET);
 
-const localAuthRoutes = require('./Auth/localAuth');
+// const localAuthRoutes = require('./Auth/localAuth');
 // const googleAuthRoutes = require('./Auth/googleAuth');
 // const profileRoutes = require('./routes/profile');
 
@@ -35,9 +35,9 @@ app.use(bodyParser.json())
 
 
 // need to intialize before using it
-app.use(passport.initialize())
-// app.use(googleAuthRoutes)
-app.use(localAuthRoutes)
+// app.use(passport.initialize())
+// // app.use(googleAuthRoutes)
+// app.use(localAuthRoutes)
 // const localAuth = passport.authenticate('local',{session:false});
 // const gAuth = passport.authenticate('google',{scope:['https://www.googleapis.com/auth/plus.login']})
 
@@ -45,7 +45,7 @@ app.use(localAuthRoutes)
 
 // add logrequest to entry route as variable if app.use(logRequest) is not there already
 app.get('/', (req, res) => {
-  res.send('Welcome to our hotel')
+  res.send('Welcome to our hotel this is the first page ')
 })
 
 
