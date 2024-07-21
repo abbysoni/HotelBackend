@@ -12,6 +12,7 @@ if(!token) return res.status(401).json({error: "Unauthorized"});
 try{
     //Verify the jwt token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("recieved jwt secret from env and token formed",process.env.JWT_SECRET)
 
     //Attach user information to the request object
     req.user = decoded;

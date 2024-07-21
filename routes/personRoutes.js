@@ -6,21 +6,21 @@ const {jwtAuthMiddleware, generateToken} = require('../config/jwt')
 // const Person = require('../Notes/People')
 const Person = require('../models/User')
 
-// router.post('/', async (req, res) => {
-//     try {
-//       const data = req.body
-//       console.log("Received data", data);
+router.post('/', async (req, res) => {
+    try {
+      const data = req.body
+      console.log("Received data", data);
   
-//       const newPerson = new Person(data)
+      const newPerson = new Person(data)
   
-//       const response = await newPerson.save();
-//       console.log("Data saved", response);
-//       res.status(200).json(newPerson)
-//     } catch (error) {
-//       console.error("Error saving person's data", error)
-//       res.status(500).json({ error: "Internal Server Error" })
-//     }
-// });
+      const response = await newPerson.save();
+      console.log("Data saved", response);
+      res.status(200).json(newPerson)
+    } catch (error) {
+      console.error("Error saving person's data", error)
+      res.status(500).json({ error: "Internal Server Error" })
+    }
+});
   
 router.get('/', async(req,res)=>{
     try{
